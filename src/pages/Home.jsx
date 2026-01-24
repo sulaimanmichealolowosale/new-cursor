@@ -94,7 +94,7 @@ export default function Home() {
             />
 
             {/* Services Section */}
-            <ScrollRevealSection className="py-20 bg-white">
+            <ScrollRevealSection className="py-20 bg-white dark:bg-primary-900">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
@@ -102,8 +102,8 @@ export default function Home() {
                         viewport={{ once: true }}
                         className="text-center mb-16"
                     >
-                        <h2 className="text-4xl font-bold text-gray-900 mb-4">Our Services</h2>
-                        <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+                        <h2 className="text-4xl font-bold text-primary-900 dark:text-white mb-4">Our Services</h2>
+                        <p className="text-xl text-primary-600 dark:text-primary-300 max-w-2xl mx-auto">
                             Comprehensive advertising solutions tailored to elevate your brand across all media channels.
                         </p>
                     </motion.div>
@@ -125,7 +125,7 @@ export default function Home() {
             </ScrollRevealSection>
 
             {/* How It Works Section */}
-            <ScrollRevealSection className="py-20 bg-gray-50">
+            <ScrollRevealSection className="py-20 bg-primary-50 dark:bg-primary-800">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
@@ -133,8 +133,8 @@ export default function Home() {
                         viewport={{ once: true }}
                         className="text-center mb-16"
                     >
-                        <h2 className="text-4xl font-bold text-gray-900 mb-4">How It Works</h2>
-                        <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+                        <h2 className="text-4xl font-bold text-primary-900 dark:text-white mb-4">How It Works</h2>
+                        <p className="text-xl text-primary-600 dark:text-primary-300 max-w-2xl mx-auto">
                             Our proven process ensures your advertising campaign succeeds at every stage.
                         </p>
                     </motion.div>
@@ -152,16 +152,16 @@ export default function Home() {
                                 <div className="flex flex-col items-center">
                                     <motion.div
                                         whileHover={{ scale: 1.1 }}
-                                        className="w-16 h-16 rounded-full bg-blue-600 text-white flex items-center justify-center text-2xl font-bold mb-4 shadow-lg"
+                                        className="w-16 h-16 rounded-full bg-accent-dark dark:bg-accent-light text-white dark:text-primary-900 flex items-center justify-center text-2xl font-bold mb-4 shadow-lg"
                                     >
                                         {step.number}
                                     </motion.div>
-                                    <h3 className="text-xl font-bold text-gray-900 mb-2 text-center">{step.title}</h3>
-                                    <p className="text-gray-600 text-center">{step.description}</p>
+                                    <h3 className="text-xl font-bold text-primary-900 dark:text-white mb-2 text-center">{step.title}</h3>
+                                    <p className="text-primary-600 dark:text-primary-300 text-center">{step.description}</p>
                                 </div>
 
                                 {index < processSteps.length - 1 && (
-                                    <div className="hidden lg:block absolute top-8 -right-4 w-8 h-0.5 bg-gradient-to-r from-blue-600 to-transparent"></div>
+                                    <div className="hidden lg:block absolute top-8 -right-4 w-8 h-0.5 bg-gradient-to-r from-accent-dark dark:from-accent-light to-transparent"></div>
                                 )}
                             </motion.div>
                         ))}
@@ -170,7 +170,7 @@ export default function Home() {
             </ScrollRevealSection>
 
             {/* Why Inventio Section */}
-            <ScrollRevealSection className="py-20 bg-white">
+            <ScrollRevealSection className="py-20 bg-white dark:bg-primary-900">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                         <motion.div
@@ -179,7 +179,7 @@ export default function Home() {
                             viewport={{ once: true }}
                             className="space-y-6"
                         >
-                            <h2 className="text-4xl font-bold text-gray-900">Why Choose INVENTIO Inc?</h2>
+                            <h2 className="text-4xl font-bold text-primary-900 dark:text-white">Why Choose INVENTIO Inc?</h2>
 
                             <div className="space-y-4">
                                 {[
@@ -198,12 +198,12 @@ export default function Home() {
                                         viewport={{ once: true }}
                                         className="flex items-center gap-3"
                                     >
-                                        <div className="w-6 h-6 rounded-full bg-blue-600 flex items-center justify-center flex-shrink-0">
-                                            <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                        <div className="w-6 h-6 rounded-full bg-accent-dark dark:bg-accent-light flex items-center justify-center flex-shrink-0">
+                                            <svg className="w-4 h-4 text-white dark:text-primary-900" fill="currentColor" viewBox="0 0 20 20">
                                                 <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                                             </svg>
                                         </div>
-                                        <span className="text-gray-700">{benefit}</span>
+                                        <span className="text-primary-700 dark:text-primary-200">{benefit}</span>
                                     </motion.div>
                                 ))}
                             </div>
@@ -213,15 +213,15 @@ export default function Home() {
                             initial={{ opacity: 0, x: 50 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
-                            className="bg-gradient-to-br from-blue-600 to-purple-600 rounded-2xl p-12 text-white"
+                            className="bg-gradient-to-br from-accent-dark to-accent-light dark:from-accent-light dark:to-accent-dark rounded-2xl p-12 text-white dark:text-primary-900"
                         >
                             <h3 className="text-2xl font-bold mb-6">Let's Elevate Your Brand</h3>
-                            <p className="mb-8 text-blue-100">
+                            <p className="mb-8 opacity-90">
                                 Ready to take your advertising to the next level? Our team is excited to help you reach new heights and connect with your ideal audience.
                             </p>
                             <Link
                                 to="#contact"
-                                className="inline-block px-6 py-3 bg-white text-blue-600 font-semibold rounded-lg hover:bg-blue-50 transition"
+                                className="inline-block px-6 py-3 bg-white dark:bg-primary-800 text-accent-dark dark:text-accent-light font-semibold rounded-lg hover:opacity-90 transition"
                             >
                                 Start Your Free Consultation
                             </Link>

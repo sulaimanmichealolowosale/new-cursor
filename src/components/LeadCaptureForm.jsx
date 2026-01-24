@@ -1,7 +1,9 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
+import { useTheme } from '../context/ThemeContext'
 
 export default function LeadCaptureForm({ title = "Get Your Free Strategy Call", subtitle = "Let's discuss your advertising goals and create a winning strategy." }) {
+    const { isDark } = useTheme()
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -36,7 +38,7 @@ export default function LeadCaptureForm({ title = "Get Your Free Strategy Call",
     }
 
     return (
-        <section id="contact" className="py-16 bg-gradient-to-br from-gray-900 to-gray-800">
+        <section id="contact" className="py-16 bg-gradient-to-br from-primary-900 to-primary-800 dark:from-primary-800 dark:to-primary-900 transition-colors duration-300">
             <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -45,7 +47,7 @@ export default function LeadCaptureForm({ title = "Get Your Free Strategy Call",
                     className="text-center mb-12"
                 >
                     <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">{title}</h2>
-                    <p className="text-gray-300 text-lg">{subtitle}</p>
+                    <p className="text-primary-200">{subtitle}</p>
                 </motion.div>
 
                 <motion.div

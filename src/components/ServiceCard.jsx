@@ -1,11 +1,9 @@
 import { motion } from 'framer-motion'
-import { useInView } from 'react-intersection-observer'
+import { useTheme } from '../context/ThemeContext'
+import { placeholderImages } from '../utils/ImageUtils'
 
-export default function ServiceCard({ icon: Icon, title, description, link }) {
-    const { ref, inView } = useInView({
-        threshold: 0.2,
-        triggerOnce: true
-    })
+export default function ServiceCard({ icon: Icon, title, description, link, image }) {
+    const { isDark } = useTheme()
 
     const cardVariants = {
         hidden: { opacity: 0, y: 50 },
@@ -16,36 +14,57 @@ export default function ServiceCard({ icon: Icon, title, description, link }) {
         }
     }
 
+    // Select image based on title or use default
+    const getImage = () => {
+        if (image) return image
+        const imageMap = {
+            'Radio Advertising': placeholderImages.radioAdvertising,
+            'Billboard Advertising': placeholderImages.billboardAdvertising,
+            'Social Media Advertising': placeholderImages.socialMediaAdvertising,
+            'Brand Design': placeholderImages.brandDesign,
+        }
+        return imageMap[title] || placeholderImages.hero
+    }
+
     return (
         <motion.div
-            ref={ref}
             variants={cardVariants}
             initial="hidden"
-            animate={inView ? "visible" : "hidden"}
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
             whileHover={{ y: -8 }}
-            className="group relative bg-white p-8 rounded-xl border border-gray-200 shadow-md hover:shadow-xl transition-shadow duration-300 cursor-pointer overflow-hidden"
+            className="group relative h-full flex flex-col bg-white dark:bg-primary-800 rounded-xl border border-primary-200 dark:border-primary-700 shadow-md dark:shadow-lg hover:shadow-xl dark:hover:shadow-2xl transition-shadow duration-300 cursor-pointer overflow-hidden"
         >
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            {/* Fixed Height Image Section */}
+            <div className="w-full h-48 overflow-hidden bg-primary-100 dark:bg-primary-700">
+                <img
+                    src={getImage()}
+                    alt={title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+            </div>
 
-            <div className="relative z-10">
+            <div className="absolute inset-0 bg-gradient-to-br from-accent-dark/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+
+            <div className="relative z-10 p-6 flex flex-col flex-grow">
                 {Icon && (
-                    <div className="mb-4 inline-block p-3 bg-blue-100 rounded-lg group-hover:bg-blue-600 transition-colors duration-300">
-                        <Icon className="w-6 h-6 text-blue-600 group-hover:text-white transition-colors duration-300" />
+                    <div className="mb-4 inline-block p-3 bg-accent-light dark:bg-accent-dark rounded-lg group-hover:bg-accent-dark dark:group-hover:bg-accent-light transition-colors duration-300">
+                        <Icon className="w-6 h-6 text-white group-hover:text-white transition-colors duration-300" />
                     </div>
                 )}
 
-                <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors duration-300">
+                <h3 className="text-xl font-bold text-primary-900 dark:text-white mb-3 group-hover:text-accent-dark dark:group-hover:text-accent-light transition-colors duration-300">
                     {title}
                 </h3>
 
-                <p className="text-gray-600 mb-6 leading-relaxed">
+                <p className="text-primary-600 dark:text-primary-300 mb-6 leading-relaxed flex-grow">
                     {description}
                 </p>
 
                 {link && (
                     <a
                         href={link}
-                        className="inline-flex items-center gap-2 text-blue-600 font-semibold hover:text-blue-700 transition"
+                        className="inline-flex items-center gap-2 text-accent-dark dark:text-accent-light font-semibold hover:text-accent-dark/80 dark:hover:text-accent-light/80 transition"
                     >
                         Learn More
                         <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -56,29 +75,4 @@ export default function ServiceCard({ icon: Icon, title, description, link }) {
             </div>
         </motion.div>
     )
-}
-
-// Simple hook for intersection observer
-function useInView(options) {
-    const { ref, inView } = require('react').useState(false)
-
-    require('react').useEffect(() => {
-        const observer = new IntersectionObserver(([entry]) => {
-            if (entry.isIntersecting) {
-                inView === false && require('react').useState(true)
-                if (options.triggerOnce) {
-                    observer.unobserve(entry.target)
-                }
-            }
-        }, {
-            threshold: options.threshold || 0.1
-        })
-
-        const element = document.querySelector('[data-observe]')
-        if (element) observer.observe(element)
-
-        return () => observer.disconnect()
-    }, [])
-
-    return { ref, inView }
 }
