@@ -1,0 +1,211 @@
+You are a senior frontend engineer and creative director.
+
+Build a modern, conversion-focused landing page for a full-service marketing and advertising agency called “INVENTIO Inc.”
+
+Brand Positioning:
+INVENTIO Inc connects businesses with high-impact advertising channels across digital and physical media.
+
+Services:
+- Radio advertising (planning, scripting, placement)
+- Billboard advertising (outdoor media strategy and placement)
+- Social media advertising (paid ads, creatives, targeting)
+- Brand design (logo, banners, brand identity)
+- Digital assets (landing pages, marketing visuals)
+
+Target Audience:
+Business owners, startups, SMEs, and growing brands seeking visibility and professional marketing execution.
+
+Design Requirements:
+- Clean, modern agency aesthetic
+- Professional, premium feel
+- Clear visual hierarchy
+- Generous whitespace
+- Subtle animations and hover effects
+- Mobile-first responsive design
+
+Tech Stack:
+- React + Tailwind CSS
+- Component-based structure
+- Reusable sections
+- SEO-friendly semantic HTML
+
+Page Sections:
+1. Hero section with strong value proposition and CTA
+2. Services section (card/grid layout)
+3. “How It Works” process section
+4. “Why Inventio Inc” value proposition
+5. Primary conversion CTA
+6. Footer with contact and brand credibility
+
+CTAs:
+- “Book a Free Strategy Call”
+- “Get Started”
+
+Tone:
+Confident, professional, clear, business-focused (not hype).
+
+Generate clean, well-structured, readable code.
+
+Hero Animation Prompt
+Add subtle entrance animations:
+- Headline fades in and moves up slightly on load
+- Subheadline follows with 100ms delay
+- CTA buttons animate last
+
+Use Framer Motion with ease-out timing.
+Animations should feel premium and restrained.
+
+Services Card Interaction Prompt
+Add hover interactions to service cards:
+- Slight upward movement (translateY -4px)
+- Soft shadow increase
+- Icon color shifts to accent color
+
+Ensure animations are smooth and fast (200–250ms).
+
+Services Card Interaction Prompt
+Add hover interactions to service cards:
+- Slight upward movement (translateY -4px)
+- Soft shadow increase
+- Icon color shifts to accent color
+
+Ensure animations are smooth and fast (200–250ms).
+
+Scroll Reveal Prompt (Sections)
+Add scroll-based reveal animations:
+- Sections fade in when entering viewport
+- No aggressive motion
+- Use intersection observer or Framer Motion viewport triggers
+
+
+Build a lead capture form:
+- Validate required fields
+- On submit, send data to email endpoint
+- Display success message without page reload
+
+Add WhatsApp CTA as secondary conversion path.
+
+
+Extend the project into a structured, modern agency website for “INVENTIO Inc.”
+
+Overall Architecture:
+- Build ONE professional homepage for brand positioning.
+- Build MULTIPLE dedicated service landing pages.
+- Each service must have its own focused page with tailored copy, visuals, and CTAs.
+- Use a shared design system so all pages feel cohesive.
+
+Pages to Create:
+
+1. Homepage (Brand Overview)
+   Purpose:
+   - Establish credibility and positioning.
+   - Clearly communicate that INVENTIO Inc is a full-service, multi-channel marketing agency.
+   - Direct visitors to specific service pages.
+
+   Homepage Sections:
+   - Hero section with strong brand statement and primary CTA
+   - Overview of services with links to individual landing pages
+   - “How It Works” process
+   - “Why Inventio Inc” credibility section
+   - Primary conversion CTA
+   - Footer
+
+   Homepage Imagery:
+   - Hero image: abstract marketing/advertising visual (billboards, media, digital growth)
+   - Services section: relevant icons or illustrative images
+   - CTA section: subtle background graphic or gradient
+
+2. Radio Advertising Landing Page
+   Purpose:
+   - Convert businesses interested specifically in radio advertising.
+
+   Page Sections:
+   - Hero explaining radio advertising value
+   - Benefits of radio advertising
+   - INVENTIO Inc’s radio advertising process
+   - Call to action (Strategy Call / WhatsApp)
+
+   Imagery:
+   - Radio studio imagery
+   - Broadcast microphones
+   - On-air production visuals
+
+3. Billboard Advertising Landing Page
+   Purpose:
+   - Convert businesses seeking outdoor and billboard advertising.
+
+   Page Sections:
+   - Hero highlighting mass visibility and reach
+   - Billboard placement strategy explanation
+   - Traffic and exposure benefits
+   - CTA
+
+   Imagery:
+   - Urban billboards
+   - Highway outdoor advertising
+   - High-traffic city visuals
+
+4. Social Media Advertising Landing Page
+   Purpose:
+   - Convert clients interested in paid social media campaigns.
+
+   Page Sections:
+   - Hero focused on reach, targeting, and conversions
+   - Platforms supported (Instagram, Facebook, etc.)
+   - Creative and targeting approach
+   - CTA
+
+   Imagery:
+   - Mobile phone mockups
+   - Social media ad previews
+   - Analytics dashboards (illustrative)
+
+5. Brand Design & Digital Assets Landing Page
+   Purpose:
+   - Convert clients looking for brand identity and digital design services.
+
+   Page Sections:
+   - Hero emphasizing professional brand identity
+   - Logo, banner, and visual identity services
+   - Landing page and digital asset design
+   - CTA
+
+   Imagery:
+   - Logo mockups
+   - Brand identity boards
+   - Website and landing page previews
+
+Navigation:
+- Sticky header with links to:
+  Home
+  Services (dropdown)
+  Contact / Strategy Call
+- Clear page hierarchy and breadcrumbs where appropriate.
+
+Design & UX Requirements:
+- Consistent typography, colors, and spacing across all pages
+- Mobile-first responsive layouts
+- Professional agency tone (corporate, confident, not hype-driven)
+- Clear visual hierarchy and scanning flow
+- Subtle animations and transitions only where appropriate
+
+Image Handling:
+- Use high-quality, royalty-free placeholder images.
+- Images should be semantically appropriate to each page’s purpose.
+- Implement lazy loading for performance.
+- Ensure images enhance clarity, not clutter.
+
+Technical Requirements:
+- React + Tailwind CSS
+- Component reuse across pages
+- Clean, readable, maintainable code
+- SEO-friendly semantic HTML structure
+- Each landing page should be easily extensible for future campaigns.
+
+CTAs:
+- Primary CTA: “Book a Free Strategy Call”
+- Secondary CTA: “Chat on WhatsApp”
+- CTAs should be context-aware per page.
+
+Goal:
+Deliver a modern, professional, agency-grade website structure that positions INVENTIO Inc as a credible, full-service marketing and advertising company with clear service-specific conversion paths.
