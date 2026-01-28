@@ -43,7 +43,7 @@ export function useTheme() {
     const context = useContext(ThemeContext)
     if (!context) {
         // Fallback for SSR/build time
-        return { isDark: false, toggleTheme: () => {} }
+        return { isDark: false, toggleTheme: () => { } }
     }
     return context
 }
