@@ -86,7 +86,7 @@ export default function Header() {
                         {/* Theme Toggle */}
                         <motion.button
                             onClick={toggleTheme}
-                            className="p-2.5 rounded-xl bg-primary-100/80 dark:bg-primary-800/80 hover:bg-primary-200 dark:hover:bg-primary-700 border border-primary-300/50 dark:border-primary-600/50 hover:border-primary-400 dark:hover:border-primary-500 shadow-sm hover:shadow-md transition-all duration-400"
+                            className="p-2.5 rounded-xl bg-gradient-to-br from-primary-200 to-primary-100 dark:from-primary-700 dark:to-primary-800 hover:from-primary-300 hover:to-primary-200 dark:hover:from-primary-600 dark:hover:to-primary-700 border-2 border-primary-300/70 dark:border-primary-600/70 hover:border-primary-400 dark:hover:border-primary-500 shadow-md hover:shadow-lg transition-all duration-400"
                             aria-label="Toggle theme"
                             whileHover={{ scale: 1.08 }}
                             whileTap={{ scale: 0.95 }}
@@ -124,7 +124,7 @@ export default function Header() {
                     <div className="md:hidden flex items-center gap-4">
                         <motion.button
                             onClick={toggleTheme}
-                            className="p-2.5 rounded-xl bg-primary-100/80 dark:bg-primary-800/80 hover:bg-primary-200 dark:hover:bg-primary-700 border border-primary-300/50 dark:border-primary-600/50 hover:border-primary-400 dark:hover:border-primary-500 shadow-sm hover:shadow-md transition-all duration-400"
+                            className="p-2.5 rounded-xl bg-gradient-to-br from-primary-200 to-primary-100 dark:from-primary-700 dark:to-primary-800 hover:from-primary-300 hover:to-primary-200 dark:hover:from-primary-600 dark:hover:to-primary-700 border-2 border-primary-300/70 dark:border-primary-600/70 hover:border-primary-400 dark:hover:border-primary-500 shadow-md hover:shadow-lg transition-all duration-400"
                             aria-label="Toggle theme"
                             whileHover={{ scale: 1.08 }}
                             whileTap={{ scale: 0.95 }}
