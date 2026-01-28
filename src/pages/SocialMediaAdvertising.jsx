@@ -1,7 +1,9 @@
+'use client'
+
 import { motion } from 'framer-motion'
-import HeroSection from '../components/HeroSection'
-import ScrollRevealSection from '../components/ScrollRevealSection'
-import LeadCaptureForm from '../components/LeadCaptureForm'
+import HeroSection from '@/components/HeroSection'
+import ScrollRevealSection from '@/components/ScrollRevealSection'
+import LeadCaptureForm from '@/components/LeadCaptureForm'
 
 export default function SocialMediaAdvertising() {
     const platforms = [
@@ -43,7 +45,7 @@ export default function SocialMediaAdvertising() {
             />
 
             {/* Platforms Section */}
-            <ScrollRevealSection className="py-20 bg-white">
+            <ScrollRevealSection className="py-20 bg-white dark:bg-primary-900">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
@@ -51,8 +53,8 @@ export default function SocialMediaAdvertising() {
                         viewport={{ once: true }}
                         className="text-center mb-16"
                     >
-                        <h2 className="text-4xl font-bold text-gray-900 mb-4">Platforms We Manage</h2>
-                        <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+                        <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">Platforms We Manage</h2>
+                        <p className="text-xl text-gray-600 dark:text-primary-300 max-w-2xl mx-auto">
                             Expert management across all major social media advertising platforms.
                         </p>
                     </motion.div>
@@ -65,10 +67,10 @@ export default function SocialMediaAdvertising() {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 transition={{ delay: index * 0.1 }}
                                 viewport={{ once: true }}
-                                className="p-6 bg-gradient-to-br from-blue-50 to-white border border-blue-200 rounded-lg hover:shadow-lg transition"
+                                className="p-6 bg-gradient-to-br from-accent-dark/10 dark:from-accent-light/10 to-transparent border border-accent-dark/20 dark:border-accent-light/20 rounded-lg hover:shadow-lg transition"
                             >
-                                <h3 className="text-xl font-bold text-gray-900 mb-3">{platform.name}</h3>
-                                <p className="text-gray-700">{platform.description}</p>
+                                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">{platform.name}</h3>
+                                <p className="text-gray-700 dark:text-primary-300">{platform.description}</p>
                             </motion.div>
                         ))}
                     </div>
@@ -76,7 +78,7 @@ export default function SocialMediaAdvertising() {
             </ScrollRevealSection>
 
             {/* Why Social Media Advertising */}
-            <ScrollRevealSection className="py-20 bg-gray-50">
+            <ScrollRevealSection className="py-20 bg-gray-50 dark:bg-primary-800">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
@@ -84,7 +86,7 @@ export default function SocialMediaAdvertising() {
                         viewport={{ once: true }}
                         className="text-center mb-16"
                     >
-                        <h2 className="text-4xl font-bold text-gray-900 mb-4">Why Social Media Advertising?</h2>
+                        <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">Why Social Media Advertising?</h2>
                     </motion.div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
@@ -102,11 +104,11 @@ export default function SocialMediaAdvertising() {
                                 whileInView={{ opacity: 1, scale: 1 }}
                                 transition={{ delay: index * 0.1 }}
                                 viewport={{ once: true }}
-                                className="p-6 bg-white rounded-lg border border-gray-200 text-center"
+                                className="p-6 bg-white dark:bg-primary-700 rounded-lg border border-gray-200 dark:border-primary-600 text-center"
                             >
                                 <div className="text-4xl mb-3">{item.icon}</div>
-                                <h4 className="font-bold text-gray-900 mb-2">{item.title}</h4>
-                                <p className="text-gray-600">{item.desc}</p>
+                                <h4 className="font-bold text-gray-900 dark:text-white mb-2">{item.title}</h4>
+                                <p className="text-gray-600 dark:text-primary-300">{item.desc}</p>
                             </motion.div>
                         ))}
                     </div>
@@ -114,7 +116,7 @@ export default function SocialMediaAdvertising() {
             </ScrollRevealSection>
 
             {/* Our Process */}
-            <ScrollRevealSection className="py-20 bg-white">
+            <ScrollRevealSection className="py-20 bg-white dark:bg-primary-900">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
@@ -122,7 +124,7 @@ export default function SocialMediaAdvertising() {
                         viewport={{ once: true }}
                         className="text-center mb-16"
                     >
-                        <h2 className="text-4xl font-bold text-gray-900 mb-4">Our Social Media Advertising Strategy</h2>
+                        <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">Our Social Media Advertising Strategy</h2>
                     </motion.div>
 
                     <div className="space-y-4 max-w-3xl mx-auto">
@@ -133,12 +135,12 @@ export default function SocialMediaAdvertising() {
                                 whileInView={{ opacity: 1, x: 0 }}
                                 transition={{ delay: index * 0.1 }}
                                 viewport={{ once: true }}
-                                className="flex items-start gap-4 p-4 bg-blue-50 rounded-lg border border-blue-200 hover:shadow-lg transition"
+                                className="flex items-start gap-4 p-4 bg-accent-dark/5 dark:bg-accent-light/5 rounded-lg border border-accent-dark/20 dark:border-accent-light/20 hover:shadow-lg transition"
                             >
-                                <div className="flex-shrink-0 w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold">
+                                <div className="flex-shrink-0 w-8 h-8 rounded-full bg-accent-dark dark:bg-accent-light text-white dark:text-primary-900 flex items-center justify-center font-bold">
                                     {index + 1}
                                 </div>
-                                <p className="text-gray-700 pt-1">{step}</p>
+                                <p className="text-gray-700 dark:text-primary-300 pt-1">{step}</p>
                             </motion.div>
                         ))}
                     </div>

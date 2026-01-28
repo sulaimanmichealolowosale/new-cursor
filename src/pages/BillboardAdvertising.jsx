@@ -1,7 +1,9 @@
+'use client'
+
 import { motion } from 'framer-motion'
-import HeroSection from '../components/HeroSection'
-import ScrollRevealSection from '../components/ScrollRevealSection'
-import LeadCaptureForm from '../components/LeadCaptureForm'
+import HeroSection from '@/components/HeroSection'
+import ScrollRevealSection from '@/components/ScrollRevealSection'
+import LeadCaptureForm from '@/components/LeadCaptureForm'
 
 export default function BillboardAdvertising() {
     const benefits = [
@@ -43,7 +45,7 @@ export default function BillboardAdvertising() {
             />
 
             {/* Benefits Section */}
-            <ScrollRevealSection className="py-20 bg-white">
+            <ScrollRevealSection className="py-20 bg-white dark:bg-primary-900">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
@@ -51,8 +53,8 @@ export default function BillboardAdvertising() {
                         viewport={{ once: true }}
                         className="text-center mb-16"
                     >
-                        <h2 className="text-4xl font-bold text-gray-900 mb-4">The Power of Billboard Advertising</h2>
-                        <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+                        <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">The Power of Billboard Advertising</h2>
+                        <p className="text-xl text-gray-600 dark:text-primary-300 max-w-2xl mx-auto">
                             Billboard advertising continues to be one of the most effective ways to reach large audiences with a simple, compelling message.
                         </p>
                     </motion.div>
@@ -65,10 +67,10 @@ export default function BillboardAdvertising() {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 transition={{ delay: index * 0.1 }}
                                 viewport={{ once: true }}
-                                className="p-6 border-l-4 border-blue-600 bg-blue-50 rounded-lg"
+                                className="p-6 border-l-4 border-accent-dark dark:border-accent-light bg-accent-dark/5 dark:bg-accent-light/5 rounded-lg"
                             >
-                                <h3 className="text-xl font-bold text-gray-900 mb-2">{benefit.title}</h3>
-                                <p className="text-gray-700">{benefit.description}</p>
+                                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">{benefit.title}</h3>
+                                <p className="text-gray-700 dark:text-primary-300">{benefit.description}</p>
                             </motion.div>
                         ))}
                     </div>
@@ -76,7 +78,7 @@ export default function BillboardAdvertising() {
             </ScrollRevealSection>
 
             {/* Placement Strategy */}
-            <ScrollRevealSection className="py-20 bg-gray-50">
+            <ScrollRevealSection className="py-20 bg-gray-50 dark:bg-primary-800">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
@@ -84,8 +86,8 @@ export default function BillboardAdvertising() {
                         viewport={{ once: true }}
                         className="text-center mb-16"
                     >
-                        <h2 className="text-4xl font-bold text-gray-900 mb-4">Our Billboard Placement Strategy</h2>
-                        <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+                        <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">Our Billboard Placement Strategy</h2>
+                        <p className="text-xl text-gray-600 dark:text-primary-300 max-w-2xl mx-auto">
                             Strategic placement is everything. We use data and expertise to ensure maximum visibility and impact.
                         </p>
                     </motion.div>
@@ -98,12 +100,12 @@ export default function BillboardAdvertising() {
                                 whileInView={{ opacity: 1, x: 0 }}
                                 transition={{ delay: index * 0.1 }}
                                 viewport={{ once: true }}
-                                className="flex items-start gap-4 p-4 bg-white rounded-lg border border-gray-200 hover:shadow-lg transition"
+                                className="flex items-start gap-4 p-4 bg-white dark:bg-primary-700 rounded-lg border border-gray-200 dark:border-primary-600 hover:shadow-lg transition"
                             >
-                                <div className="flex-shrink-0 w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold">
+                                <div className="flex-shrink-0 w-8 h-8 rounded-full bg-accent-dark dark:bg-accent-light text-white dark:text-primary-900 flex items-center justify-center font-bold">
                                     {index + 1}
                                 </div>
-                                <p className="text-gray-700 pt-1">{step}</p>
+                                <p className="text-gray-700 dark:text-primary-300 pt-1">{step}</p>
                             </motion.div>
                         ))}
                     </div>
@@ -111,7 +113,7 @@ export default function BillboardAdvertising() {
             </ScrollRevealSection>
 
             {/* Placement Types */}
-            <ScrollRevealSection className="py-20 bg-white">
+            <ScrollRevealSection className="py-20 bg-white dark:bg-primary-900">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
@@ -119,7 +121,7 @@ export default function BillboardAdvertising() {
                         viewport={{ once: true }}
                         className="text-center mb-16"
                     >
-                        <h2 className="text-4xl font-bold text-gray-900 mb-4">Billboard Types We Offer</h2>
+                        <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">Billboard Types We Offer</h2>
                     </motion.div>
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -143,10 +145,10 @@ export default function BillboardAdvertising() {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 transition={{ delay: index * 0.1 }}
                                 viewport={{ once: true }}
-                                className="p-6 bg-gradient-to-br from-blue-50 to-transparent border border-blue-200 rounded-lg text-center hover:shadow-lg transition"
+                                className="p-6 bg-gradient-to-br from-accent-dark/10 dark:from-accent-light/10 to-transparent border border-accent-dark/20 dark:border-accent-light/20 rounded-lg text-center hover:shadow-lg transition"
                             >
-                                <h3 className="text-lg font-bold text-gray-900 mb-2">{type.name}</h3>
-                                <p className="text-gray-600">{type.description}</p>
+                                <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">{type.name}</h3>
+                                <p className="text-gray-600 dark:text-primary-300">{type.description}</p>
                             </motion.div>
                         ))}
                     </div>
@@ -154,7 +156,7 @@ export default function BillboardAdvertising() {
             </ScrollRevealSection>
 
             {/* Stats Section */}
-            <ScrollRevealSection className="py-20 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
+            <ScrollRevealSection className="py-20 bg-gradient-to-r from-accent-dark to-purple-600 text-white dark:from-accent-light dark:to-purple-500">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
                         {[

@@ -1,6 +1,9 @@
+'use client'
+
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { useTheme } from '../context/ThemeContext'
+import { useTheme } from '@/context/ThemeContext'
+import { sectionFadeUpVariants, scaleFadeVariants, containerVariants } from '@/utils/motionVariants'
 
 export default function LeadCaptureForm({ title = "Get Your Free Strategy Call", subtitle = "Let's discuss your advertising goals and create a winning strategy." }) {
     const { isDark } = useTheme()
@@ -38,45 +41,62 @@ export default function LeadCaptureForm({ title = "Get Your Free Strategy Call",
     }
 
     return (
-        <section id="contact" className="py-16 bg-gradient-to-br from-primary-900 to-primary-800 dark:from-primary-800 dark:to-primary-900 transition-colors duration-300">
-            <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section id="contact" className="py-24 bg-gradient-to-br from-primary-900 via-primary-900 to-primary-800 dark:from-primary-800 dark:via-primary-850 dark:to-primary-900 transition-colors duration-300 relative overflow-hidden">
+            {/* Decorative Elements */}
+            <div className="absolute inset-0 opacity-5">
+                <div className="absolute top-20 -right-32 w-64 h-64 bg-accent-light rounded-full filter blur-3xl"></div>
+                <div className="absolute -bottom-40 -left-32 w-96 h-96 bg-accent-dark rounded-full filter blur-3xl"></div>
+            </div>
+
+            <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    className="text-center mb-12"
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: "-100px" }}
+                    variants={sectionFadeUpVariants}
+                    className="text-center mb-16"
                 >
-                    <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">{title}</h2>
-                    <p className="text-primary-200">{subtitle}</p>
+                    <h2 className="text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">{title}</h2>
+                    <p className="text-lg text-primary-200 leading-relaxed max-w-2xl mx-auto">{subtitle}</p>
                 </motion.div>
 
                 <motion.div
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    className="bg-white rounded-xl shadow-2xl p-8 md:p-12"
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: "-50px" }}
+                    variants={scaleFadeVariants}
+                    className="bg-white/95 dark:bg-primary-800/95 backdrop-blur-sm rounded-2xl shadow-2xl p-10 md:p-16 border border-white/20 dark:border-primary-700/40"
                 >
                     {submitted ? (
                         <motion.div
-                            initial={{ scale: 0 }}
-                            animate={{ scale: 1 }}
-                            className="text-center py-12"
+                            initial={{ scale: 0.8, opacity: 0 }}
+                            animate={{ scale: 1, opacity: 1 }}
+                            className="text-center py-16"
                         >
-                            <div className="inline-block p-4 bg-green-100 rounded-full mb-4">
-                                <svg className="w-8 h-8 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                            <motion.div
+                                initial={{ scale: 0 }}
+                                animate={{ scale: 1 }}
+                                transition={{ type: "spring", stiffness: 200, damping: 20 }}
+                                className="inline-block p-5 bg-green-100 dark:bg-green-900/30 rounded-full mb-6"
+                            >
+                                <svg className="w-10 h-10 text-green-600 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20">
                                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                                 </svg>
-                            </div>
-                            <h3 className="text-2xl font-bold text-gray-900 mb-2">Thank You!</h3>
-                            <p className="text-gray-600">
-                                We've received your inquiry. Our team will contact you within 24 hours to discuss your strategy.
+                            </motion.div>
+                            <h3 className="text-3xl font-bold text-primary-900 dark:text-white mb-3">Thank You!</h3>
+                            <p className="text-primary-600 dark:text-primary-300 text-lg leading-relaxed">
+                                We've received your inquiry. Our team will contact you within 24 hours to discuss your strategy and next steps.
                             </p>
                         </motion.div>
                     ) : (
-                        <form onSubmit={handleSubmit} className="space-y-6">
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                <div>
-                                    <label className="block text-sm font-semibold text-gray-900 mb-2">
+                        <form onSubmit={handleSubmit} className="space-y-8">
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                                <motion.div
+                                    initial={{ opacity: 0, y: 10 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    transition={{ delay: 0.1 }}
+                                >
+                                    <label className="block text-sm font-semibold text-primary-900 dark:text-white mb-3">
                                         Name *
                                     </label>
                                     <input
@@ -85,13 +105,17 @@ export default function LeadCaptureForm({ title = "Get Your Free Strategy Call",
                                         value={formData.name}
                                         onChange={handleChange}
                                         required
-                                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
+                                        className="w-full px-5 py-3 border border-primary-200 dark:border-primary-700 bg-white dark:bg-primary-900 text-primary-900 dark:text-white rounded-lg focus:ring-2 focus:ring-accent-dark dark:focus:ring-accent-light focus:border-transparent transition placeholder-primary-400 dark:placeholder-primary-500"
                                         placeholder="Your Name"
                                     />
-                                </div>
+                                </motion.div>
 
-                                <div>
-                                    <label className="block text-sm font-semibold text-gray-900 mb-2">
+                                <motion.div
+                                    initial={{ opacity: 0, y: 10 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    transition={{ delay: 0.2 }}
+                                >
+                                    <label className="block text-sm font-semibold text-primary-900 dark:text-white mb-3">
                                         Email *
                                     </label>
                                     <input
@@ -100,13 +124,17 @@ export default function LeadCaptureForm({ title = "Get Your Free Strategy Call",
                                         value={formData.email}
                                         onChange={handleChange}
                                         required
-                                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
+                                        className="w-full px-5 py-3 border border-primary-200 dark:border-primary-700 bg-white dark:bg-primary-900 text-primary-900 dark:text-white rounded-lg focus:ring-2 focus:ring-accent-dark dark:focus:ring-accent-light focus:border-transparent transition placeholder-primary-400 dark:placeholder-primary-500"
                                         placeholder="you@example.com"
                                     />
-                                </div>
+                                </motion.div>
 
-                                <div>
-                                    <label className="block text-sm font-semibold text-gray-900 mb-2">
+                                <motion.div
+                                    initial={{ opacity: 0, y: 10 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    transition={{ delay: 0.3 }}
+                                >
+                                    <label className="block text-sm font-semibold text-primary-900 dark:text-white mb-3">
                                         Phone
                                     </label>
                                     <input
@@ -114,13 +142,17 @@ export default function LeadCaptureForm({ title = "Get Your Free Strategy Call",
                                         name="phone"
                                         value={formData.phone}
                                         onChange={handleChange}
-                                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
+                                        className="w-full px-5 py-3 border border-primary-200 dark:border-primary-700 bg-white dark:bg-primary-900 text-primary-900 dark:text-white rounded-lg focus:ring-2 focus:ring-accent-dark dark:focus:ring-accent-light focus:border-transparent transition placeholder-primary-400 dark:placeholder-primary-500"
                                         placeholder="+1 (555) 123-4567"
                                     />
-                                </div>
+                                </motion.div>
 
-                                <div>
-                                    <label className="block text-sm font-semibold text-gray-900 mb-2">
+                                <motion.div
+                                    initial={{ opacity: 0, y: 10 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    transition={{ delay: 0.4 }}
+                                >
+                                    <label className="block text-sm font-semibold text-primary-900 dark:text-white mb-3">
                                         Company
                                     </label>
                                     <input
@@ -128,14 +160,18 @@ export default function LeadCaptureForm({ title = "Get Your Free Strategy Call",
                                         name="company"
                                         value={formData.company}
                                         onChange={handleChange}
-                                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
+                                        className="w-full px-5 py-3 border border-primary-200 dark:border-primary-700 bg-white dark:bg-primary-900 text-primary-900 dark:text-white rounded-lg focus:ring-2 focus:ring-accent-dark dark:focus:ring-accent-light focus:border-transparent transition placeholder-primary-400 dark:placeholder-primary-500"
                                         placeholder="Your Company"
                                     />
-                                </div>
+                                </motion.div>
                             </div>
 
-                            <div>
-                                <label className="block text-sm font-semibold text-gray-900 mb-2">
+                            <motion.div
+                                initial={{ opacity: 0, y: 10 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                transition={{ delay: 0.5 }}
+                            >
+                                <label className="block text-sm font-semibold text-primary-900 dark:text-white mb-3">
                                     Tell us about your advertising goals
                                 </label>
                                 <textarea
@@ -143,17 +179,17 @@ export default function LeadCaptureForm({ title = "Get Your Free Strategy Call",
                                     value={formData.message}
                                     onChange={handleChange}
                                     rows="4"
-                                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
+                                    className="w-full px-5 py-3 border border-primary-200 dark:border-primary-700 bg-white dark:bg-primary-900 text-primary-900 dark:text-white rounded-lg focus:ring-2 focus:ring-accent-dark dark:focus:ring-accent-light focus:border-transparent transition placeholder-primary-400 dark:placeholder-primary-500"
                                     placeholder="What are you looking to achieve with your advertising campaign?"
                                 ></textarea>
-                            </div>
+                            </motion.div>
 
                             <motion.button
                                 type="submit"
                                 disabled={loading}
                                 whileHover={{ scale: 1.02 }}
                                 whileTap={{ scale: 0.98 }}
-                                className="w-full px-8 py-4 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition disabled:opacity-50 disabled:cursor-not-allowed"
+                                className="w-full px-8 py-4 bg-accent-dark hover:bg-accent-dark/90 text-white font-semibold rounded-lg transition disabled:opacity-50 disabled:cursor-not-allowed shadow-md hover:shadow-lg"
                             >
                                 {loading ? (
                                     <span className="flex items-center justify-center gap-2">

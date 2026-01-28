@@ -1,7 +1,9 @@
+'use client'
+
 import { motion } from 'framer-motion'
-import HeroSection from '../components/HeroSection'
-import ScrollRevealSection from '../components/ScrollRevealSection'
-import LeadCaptureForm from '../components/LeadCaptureForm'
+import HeroSection from '@/components/HeroSection'
+import ScrollRevealSection from '@/components/ScrollRevealSection'
+import LeadCaptureForm from '@/components/LeadCaptureForm'
 
 export default function RadioAdvertising() {
     const benefits = [
@@ -43,7 +45,7 @@ export default function RadioAdvertising() {
             />
 
             {/* Benefits Section */}
-            <ScrollRevealSection className="py-20 bg-white">
+            <ScrollRevealSection className="py-20 bg-white dark:bg-primary-900">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
@@ -51,8 +53,8 @@ export default function RadioAdvertising() {
                         viewport={{ once: true }}
                         className="text-center mb-16"
                     >
-                        <h2 className="text-4xl font-bold text-gray-900 mb-4">Why Radio Advertising?</h2>
-                        <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+                        <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">Why Radio Advertising?</h2>
+                        <p className="text-xl text-gray-600 dark:text-primary-300 max-w-2xl mx-auto">
                             Radio remains one of the most effective channels for reaching engaged audiences in their daily lives.
                         </p>
                     </motion.div>
@@ -65,10 +67,10 @@ export default function RadioAdvertising() {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 transition={{ delay: index * 0.1 }}
                                 viewport={{ once: true }}
-                                className="p-6 border-l-4 border-blue-600 bg-blue-50 rounded-lg"
+                                className="p-6 border-l-4 border-accent-dark dark:border-accent-light bg-accent-dark/5 dark:bg-accent-light/5 rounded-lg"
                             >
-                                <h3 className="text-xl font-bold text-gray-900 mb-2">{benefit.title}</h3>
-                                <p className="text-gray-700">{benefit.description}</p>
+                                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">{benefit.title}</h3>
+                                <p className="text-gray-700 dark:text-primary-300">{benefit.description}</p>
                             </motion.div>
                         ))}
                     </div>
@@ -76,7 +78,7 @@ export default function RadioAdvertising() {
             </ScrollRevealSection>
 
             {/* Our Radio Process */}
-            <ScrollRevealSection className="py-20 bg-gray-50">
+            <ScrollRevealSection className="py-20 bg-gray-50 dark:bg-primary-800">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
@@ -84,8 +86,8 @@ export default function RadioAdvertising() {
                         viewport={{ once: true }}
                         className="text-center mb-16"
                     >
-                        <h2 className="text-4xl font-bold text-gray-900 mb-4">Our Radio Advertising Process</h2>
-                        <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+                        <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">Our Radio Advertising Process</h2>
+                        <p className="text-xl text-gray-600 dark:text-primary-300 max-w-2xl mx-auto">
                             A comprehensive approach to ensure your message reaches the right listeners at the right time.
                         </p>
                     </motion.div>
@@ -98,12 +100,12 @@ export default function RadioAdvertising() {
                                 whileInView={{ opacity: 1, x: 0 }}
                                 transition={{ delay: index * 0.1 }}
                                 viewport={{ once: true }}
-                                className="flex items-start gap-4 p-4 bg-white rounded-lg border border-gray-200 hover:shadow-lg transition"
+                                className="flex items-start gap-4 p-4 bg-white dark:bg-primary-700 rounded-lg border border-gray-200 dark:border-primary-600 hover:shadow-lg transition"
                             >
-                                <div className="flex-shrink-0 w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold">
+                                <div className="flex-shrink-0 w-8 h-8 rounded-full bg-accent-dark dark:bg-accent-light text-white dark:text-primary-900 flex items-center justify-center font-bold">
                                     {index + 1}
                                 </div>
-                                <p className="text-gray-700 pt-1">{step}</p>
+                                <p className="text-gray-700 dark:text-primary-300 pt-1">{step}</p>
                             </motion.div>
                         ))}
                     </div>
@@ -135,15 +137,15 @@ export default function RadioAdvertising() {
             </ScrollRevealSection>
 
             {/* CTA Section */}
-            <ScrollRevealSection className="py-16 bg-white">
+            <ScrollRevealSection className="py-16 bg-white dark:bg-primary-900">
                 <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                    <h2 className="text-3xl font-bold text-gray-900 mb-4">Ready to Launch Your Radio Campaign?</h2>
-                    <p className="text-lg text-gray-600 mb-8">
+                    <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">Ready to Launch Your Radio Campaign?</h2>
+                    <p className="text-lg text-gray-600 dark:text-primary-300 mb-8">
                         Let's discuss your goals and create a radio advertising strategy that drives real results.
                     </p>
                     <button
                         onClick={() => window.location.href = '#contact'}
-                        className="px-8 py-4 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition transform hover:scale-105 active:scale-95"
+                        className="px-8 py-4 bg-accent-dark dark:bg-accent-light text-white dark:text-primary-900 font-semibold rounded-lg hover:opacity-90 transition transform hover:scale-105 active:scale-95"
                     >
                         Book Your Free Consultation
                     </button>

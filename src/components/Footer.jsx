@@ -1,42 +1,44 @@
-import { Link } from 'react-router-dom'
-import { useTheme } from '../context/ThemeContext'
+'use client'
+
+import Link from 'next/link'
+import { useTheme } from '@/context/ThemeContext'
 
 export default function Footer() {
     const { isDark } = useTheme()
 
     return (
-        <footer className="bg-primary-900 dark:bg-primary-950 text-primary-300 dark:text-primary-400 py-12 transition-colors duration-300">
+        <footer className="bg-primary-900 dark:bg-primary-950 text-primary-300 dark:text-primary-400 py-16 transition-colors duration-300 border-t border-primary-800 dark:border-primary-900">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
                     {/* Brand */}
-                    <div>
-                        <h3 className="text-white text-lg font-bold mb-4">INVENTIO Inc</h3>
-                        <p className="text-sm">
-                            Connecting businesses with high-impact advertising channels across digital and physical media.
+                    <div className="space-y-4">
+                        <h3 className="text-white text-lg font-bold">INVENTIO Inc</h3>
+                        <p className="text-sm leading-relaxed text-primary-400">
+                            Strategic advertising solutions connecting your brand with audiences across every channel.
                         </p>
                     </div>
 
                     {/* Services */}
                     <div>
-                        <h4 className="text-white font-semibold mb-4">Services</h4>
-                        <ul className="space-y-2 text-sm">
+                        <h4 className="text-white font-semibold mb-6">Services</h4>
+                        <ul className="space-y-3 text-sm">
                             <li>
-                                <Link to="/services/radio" className="hover:text-accent-light transition">
+                                <Link href="/services/radio" className="text-primary-400 hover:text-accent-light transition duration-200">
                                     Radio Advertising
                                 </Link>
                             </li>
                             <li>
-                                <Link to="/services/billboard" className="hover:text-accent-light transition">
+                                <Link href="/services/billboard" className="text-primary-400 hover:text-accent-light transition duration-200">
                                     Billboard Advertising
                                 </Link>
                             </li>
                             <li>
-                                <Link to="/services/social-media" className="hover:text-accent-light transition">
+                                <Link href="/services/social-media" className="text-primary-400 hover:text-accent-light transition duration-200">
                                     Social Media Ads
                                 </Link>
                             </li>
                             <li>
-                                <Link to="/services/brand-design" className="hover:text-accent-light transition">
+                                <Link href="/services/brand-design" className="text-primary-400 hover:text-accent-light transition duration-200">
                                     Brand Design
                                 </Link>
                             </li>
@@ -45,15 +47,15 @@ export default function Footer() {
 
                     {/* Company */}
                     <div>
-                        <h4 className="text-white font-semibold mb-4">Company</h4>
-                        <ul className="space-y-2 text-sm">
+                        <h4 className="text-white font-semibold mb-6">Company</h4>
+                        <ul className="space-y-3 text-sm">
                             <li>
-                                <a href="#about" className="hover:text-accent-light transition">
+                                <a href="#about" className="text-primary-400 hover:text-accent-light transition duration-200">
                                     About
                                 </a>
                             </li>
                             <li>
-                                <a href="#portfolio" className="hover:text-accent-light transition">
+                                <a href="#portfolio" className="text-primary-400 hover:text-accent-light transition duration-200">
                                     Portfolio
                                 </a>
                             </li>

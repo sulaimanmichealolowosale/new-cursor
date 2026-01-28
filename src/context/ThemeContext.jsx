@@ -1,3 +1,5 @@
+'use client'
+
 import React, { createContext, useContext, useEffect, useState } from 'react'
 
 const ThemeContext = createContext()
@@ -5,12 +7,15 @@ const ThemeContext = createContext()
 export function ThemeProvider({ children }) {
     const [isDark, setIsDark] = useState(() => {
         // Check localStorage first
-        const stored = localStorage.getItem('theme')
-        if (stored) {
-            return stored === 'dark'
+        if (typeof window !== 'undefined') {
+            const stored = localStorage.getItem('theme')
+            if (stored) {
+                return stored === 'dark'
+            }
+            // Check system preference
+            return window.matchMedia('(prefers-color-scheme: dark)').matches
         }
-        // Check system preference
-        return window.matchMedia('(prefers-color-scheme: dark)').matches
+        return false
     })
 
     useEffect(() => {
@@ -41,3 +46,4 @@ export function useTheme() {
     }
     return context
 }
+

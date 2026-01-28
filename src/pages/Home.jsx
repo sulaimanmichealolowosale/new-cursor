@@ -1,9 +1,11 @@
-import { Link } from 'react-router-dom'
+'use client'
+
+import Link from 'next/link'
 import { motion } from 'framer-motion'
-import HeroSection from '../components/HeroSection'
-import ScrollRevealSection from '../components/ScrollRevealSection'
-import ServiceCard from '../components/ServiceCard'
-import LeadCaptureForm from '../components/LeadCaptureForm'
+import HeroSection from '@/components/HeroSection'
+import ScrollRevealSection from '@/components/ScrollRevealSection'
+import ServiceCard from '@/components/ServiceCard'
+import LeadCaptureForm from '@/components/LeadCaptureForm'
 
 // Icons as simple SVG components
 const RadioIcon = (props) => (
@@ -219,12 +221,12 @@ export default function Home() {
                             <p className="mb-8 opacity-90">
                                 Ready to take your advertising to the next level? Our team is excited to help you reach new heights and connect with your ideal audience.
                             </p>
-                            <Link
-                                to="#contact"
+                            <a
+                                href="#contact"
                                 className="inline-block px-6 py-3 bg-white dark:bg-primary-800 text-accent-dark dark:text-accent-light font-semibold rounded-lg hover:opacity-90 transition"
                             >
                                 Start Your Free Consultation
-                            </Link>
+                            </a>
                         </motion.div>
                     </div>
                 </div>
